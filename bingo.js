@@ -54,6 +54,8 @@ function shuffleArray() {
 }
 
 function shuffleCard() {
+    document.querySelector(".bingo-modal-backdrop").classList.remove("got-bingo")
+    confetti.remove();
     var crossedTiles = Array.from($(".cross-off"))
     if (crossedTiles) {
         crossedTiles.forEach(item => {
@@ -138,9 +140,15 @@ function getBingo() {
         array.includes("21")
 
         ) {
-            window.alert("Bingo!");
+            document.querySelector(".bingo-modal-backdrop").classList.add("got-bingo")
+            confetti.start();
             // setCard();
         }        
+}
+
+function keepPlaying() {
+    confetti.remove();
+    document.querySelector(".bingo-modal-backdrop").classList.remove("got-bingo")
 }
 
 document.querySelector(".copyright").innerHTML = `David Irvin © ${new Date().getFullYear()}`

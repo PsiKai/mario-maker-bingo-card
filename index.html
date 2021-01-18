@@ -6,6 +6,7 @@
     <title>Mario Maker Bingo</title>
     <link rel="stylesheet" href="bingo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
 
 </head>
 <body>
@@ -44,7 +45,13 @@
         <div class="free-square"><b>Free Space</b></div>
     </div>
     <button onclick=shuffleCard()>New Card</button>
-
+    <div class="bingo-modal-backdrop">
+        <div class="bingo-modal">
+            <h1>That's a Bingo!</h1>
+            <!-- <button onclick=keepPlaying()>View Card</button> -->
+            <button onclick=shuffleCard()>Play Again</button>
+        </div>
+    </div>
 
     <p class="copyright"></p>
     <script src="jquery.fittext.js"></script>
