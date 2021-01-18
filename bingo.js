@@ -39,7 +39,6 @@ function setCard() {
 setCard();
 
 if (parseFloat(window.getComputedStyle(document.querySelector("html")).width) > 850) {
-    console.log(true);
     jQuery(squares).fitText(0.7);
 } else {
     jQuery(squares).fitText(0.6)
