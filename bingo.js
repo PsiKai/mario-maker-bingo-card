@@ -134,7 +134,9 @@ function getBingo() {
         array.includes("21")
 
         ) {
-            console.log("Bingo!");
+            window.alert("Bingo!");
+            // setCard();
         }        
 }
 
+document.querySelector(".copyright").innerHTML = `David Irvin © ${new Date().getFullYear()}`
