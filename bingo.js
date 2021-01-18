@@ -26,7 +26,16 @@ var bingos = [
     'terribly named level',
     'kills mario at the start',
     'on/off blocks',
-    '#DGR level'
+    '#DGR level',
+    'Troll level',
+    "can't touch the ground clear condition",
+    'speedrun with full length timer',
+    'vertical auto- scroller',
+    'dev star/exit',
+    '1up at goal is impossible',
+    'pixel art in thumbnail',
+    'back to cp1'
+
 ]
 
 function setCard() {

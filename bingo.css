@@ -25,6 +25,7 @@ body {
   grid-template-columns: repeat(5, 150px);
   cursor: pointer;
   border: 1px solid black;
+  animation: fade-in 100ms ease-in-out forwards;
 }
 
 .free-square {
@@ -67,7 +68,8 @@ button:active {
   /* opacity: 0.2; */
 }
 
-.cross-off::after {
+.cross-off::after,
+.free-square::after {
   content: "X";
   position: absolute;
   font-size: 8rem;
@@ -75,6 +77,16 @@ button:active {
   opacity: 0.7 !important;
   display: inline-block;
   width: 4rem;
+  animation: fade-opaque 100ms ease forwards;
+}
+
+@keyframes fade-opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.7;
+  }
 }
 
 .title {
@@ -189,7 +201,8 @@ button:active {
     grid-template-columns: repeat(5, 100px);
   }
 
-  .cross-off::after {
+  .cross-off::after,
+  .free-square::after {
     font-size: 6rem;
     width: 3rem;
   }
@@ -226,7 +239,8 @@ button:active {
     grid-template-columns: repeat(5, 75px);
   }
 
-  .cross-off::after {
+  .cross-off::after,
+  .free-square::after {
     font-size: 4rem;
     width: 2rem;
   }
