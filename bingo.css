@@ -167,7 +167,7 @@ button:active {
   }
 
   .cross-off::before {
-    /* margin-left: 0.5rem; */
+    margin-left: -0.5rem;
     font-size: 4rem;
   }
 
