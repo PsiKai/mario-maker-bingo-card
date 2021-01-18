@@ -49,10 +49,18 @@ body {
 } */
 
 button {
+  width: 200px;
   margin: 3rem auto;
   padding: 1rem;
   display: block;
   font-family: inherit;
+  background-color: #5c94fc;
+  font-size: 1.5rem;
+}
+
+button:focus,
+button:active {
+  outline: none;
 }
 
 .cross-off {
@@ -110,6 +118,10 @@ button {
 }
 
 @media (max-width: 850px) {
+  body {
+    margin-top: 0;
+  }
+
   .bingo-card {
     width: 500px;
     height: 500px;
@@ -147,10 +159,6 @@ button {
 }
 
 @media (max-width: 550px) {
-  body {
-    margin-top: 0;
-  }
-
   .bingo-card {
     width: 375px;
     height: 375px;
@@ -159,7 +167,7 @@ button {
   }
 
   .cross-off::before {
-    margin-left: 0.5rem;
+    /* margin-left: 0.5rem; */
     font-size: 4rem;
   }
 
@@ -184,5 +192,15 @@ button {
 
   .title h1:nth-of-type(4) {
     font-size: 2rem;
+  }
+
+  button {
+    width: 300px;
+    font-size: 1rem;
+    margin: 2rem auto;
+  }
+
+  .copyright {
+    margin: 0;
   }
 }
