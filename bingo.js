@@ -135,6 +135,6 @@ function getBingo() {
 
         ) {
             console.log("Bingo!");
-        }
-         
+        }        
 }
+
