@@ -189,7 +189,7 @@ button:active {
     grid-template-columns: repeat(5, 100px);
   }
 
-  .cross-off::before {
+  .cross-off::after {
     font-size: 6rem;
     width: 3rem;
   }
@@ -226,7 +226,7 @@ button:active {
     grid-template-columns: repeat(5, 75px);
   }
 
-  .cross-off::before {
+  .cross-off::after {
     font-size: 4rem;
     width: 2rem;
   }
