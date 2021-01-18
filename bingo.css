@@ -1,0 +1,101 @@
+@font-face {
+  font-family: marioFont;
+  src: url("fonts/super-mario-maker.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: marioFont;
+  padding: 2rem;
+  background-color: #facd00;
+  text-align: center;
+}
+
+.bingo-card {
+  background-color: #f8dc81;
+  margin: auto;
+  height: 750px;
+  width: 750px;
+  display: grid;
+  grid-template-rows: repeat(5, 150px);
+  grid-template-columns: repeat(5, 150px);
+  cursor: pointer;
+}
+
+.free-square {
+  grid-row: 3;
+  grid-column: 3;
+  cursor: default;
+}
+
+.bingo-square,
+.free-square {
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+/* .bingo-square:nth-of-type(n) {
+  grid-area: n;
+} */
+
+button {
+  margin: 3rem auto;
+  padding: 1rem;
+  display: block;
+  font-family: inherit;
+}
+
+.cross-off {
+  opacity: 0.2;
+}
+
+.cross-off::before {
+  margin-left: 1rem;
+  content: "X";
+  position: absolute;
+  font-size: 8rem;
+  color: #e52521;
+  opacity: 1 !important;
+}
+
+.title {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+}
+
+.title h1:first-of-type {
+  font-size: 4rem;
+  margin-bottom: 0;
+  text-align: left;
+  position: relative;
+  bottom: -3rem;
+}
+
+.title h1:nth-of-type(2) {
+  font-size: 6rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.title h1:nth-of-type(3) {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #e52521;
+  display: inline-block;
+  font-size: 10rem;
+}
+
+.title h1:nth-of-type(4) {
+  font-size: 6rem;
+  margin-top: 0;
+}

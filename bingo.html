@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Maker Bingo</title>
+    <link rel="stylesheet" href="bingo.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="title">
+        <h1>Super</h1>
+        <h1>Mario Maker</h1>
+        <h1>2</h1>
+        <h1>Bingo</h1>
+    </div>
+    
+    <div class="bingo-card">
+        <div class="bingo-square" onclick=crossOff(event) value="1"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="2"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="3"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="4"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="5"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="6"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="7"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="8"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="9"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="10"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="11"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="12"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="14"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="15"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="16"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="17"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="18"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="19"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="20"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="21"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="22"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="23"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="24"></div>
+        <div class="bingo-square" onclick=crossOff(event) value="25"></div>
+        <div class="free-square"><b>Free Space</b></div>
+    </div>
+    <button onclick=shuffleCard()>New Card</button>
+
+    <script src="jquery.fittext.js"></script>
+    <script src="bingo.js"></script>
+</body>
+</html>
