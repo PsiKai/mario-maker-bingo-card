@@ -7,6 +7,24 @@
   box-sizing: border-box;
 }
 
+html {
+  scrollbar-width: 8px;
+  scrollbar-color: #6a0400 #ffd987;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffd987;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6a0400;
+  border-radius: 4px;
+}
+
 body {
   margin: 0;
   margin-top: -2.5rem;
@@ -25,6 +43,8 @@ body {
   grid-template-columns: repeat(5, 150px);
   cursor: pointer;
   border: 1px solid black;
+  border-radius: 16px;
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.4);
   animation: fade-in 100ms ease-in-out forwards;
 }
 
@@ -45,9 +65,21 @@ body {
   padding: 0.5rem;
 }
 
-/* .bingo-square:nth-of-type(n) {
-  grid-area: n;
-} */
+.bingo-square:nth-of-type(1) {
+  border-top-left-radius: 12px;
+}
+
+.bingo-square:nth-of-type(5) {
+  border-top-right-radius: 16px;
+}
+
+.bingo-square:nth-of-type(20) {
+  border-bottom-left-radius: 16px;
+}
+
+.bingo-square:nth-of-type(24) {
+  border-bottom-right-radius: 20px;
+}
 
 button {
   width: 200px;
@@ -57,15 +89,12 @@ button {
   font-family: inherit;
   background-color: #5c94fc;
   font-size: 1.5rem;
+  border-radius: 4px;
 }
 
 button:focus,
 button:active {
   outline: none;
-}
-
-.cross-off {
-  /* opacity: 0.2; */
 }
 
 .cross-off::after,
@@ -74,7 +103,7 @@ button:active {
   position: absolute;
   font-size: 8rem;
   color: #e52521;
-  opacity: 0.7 !important;
+  opacity: 0.7;
   display: inline-block;
   width: 4rem;
   animation: fade-opaque 100ms ease forwards;
