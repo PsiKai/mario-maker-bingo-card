@@ -68,12 +68,13 @@ button:active {
 }
 
 .cross-off::before {
-  margin-left: 1rem;
   content: "X";
   position: absolute;
   font-size: 8rem;
   color: #e52521;
   opacity: 1 !important;
+  display: inline-block;
+  width: 4rem;
 }
 
 .title {
@@ -130,8 +131,8 @@ button:active {
   }
 
   .cross-off::before {
-    margin-left: 1rem;
     font-size: 6rem;
+    width: 3rem;
   }
 
   .title span {
@@ -167,8 +168,8 @@ button:active {
   }
 
   .cross-off::before {
-    margin-left: -0.5rem;
     font-size: 4rem;
+    width: 2rem;
   }
 
   .title span {
