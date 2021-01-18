@@ -260,6 +260,11 @@ button:active {
     margin: 2rem auto;
   }
 
+  .bingo-modal {
+    width: 375px;
+    height: 260px;
+  }
+
   .copyright {
     margin: 0;
   }
