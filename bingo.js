@@ -38,7 +38,12 @@ function setCard() {
 
 setCard();
 
-jQuery(squares).fitText(0.7)
+if (parseFloat(window.getComputedStyle(document.querySelector("html")).width) > 850) {
+    console.log(true);
+    jQuery(squares).fitText(0.7);
+} else {
+    jQuery(squares).fitText(0.6)
+}
 
 function shuffleArray() {
     for (var i = bingos.length - 1; i > 0; i--) {

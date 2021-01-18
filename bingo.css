@@ -24,6 +24,7 @@ body {
   grid-template-rows: repeat(5, 150px);
   grid-template-columns: repeat(5, 150px);
   cursor: pointer;
+  border: 1px solid black;
 }
 
 .free-square {
@@ -108,5 +109,80 @@ button {
   margin-top: 0;
 }
 
-.copyright {
+@media (max-width: 850px) {
+  .bingo-card {
+    width: 500px;
+    height: 500px;
+    grid-template-rows: repeat(5, 100px);
+    grid-template-columns: repeat(5, 100px);
+  }
+
+  .cross-off::before {
+    margin-left: 1rem;
+    font-size: 6rem;
+  }
+
+  .title span {
+    font-size: 1rem;
+    bottom: -0.5rem;
+    left: -0.25rem;
+  }
+
+  .title h1:first-of-type {
+    font-size: 2rem;
+    bottom: -1.75rem;
+  }
+
+  .title h1:nth-of-type(2) {
+    font-size: 3rem;
+  }
+
+  .title h1:nth-of-type(3) {
+    font-size: 5rem;
+  }
+
+  .title h1:nth-of-type(4) {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 550px) {
+  body {
+    margin-top: 0;
+  }
+
+  .bingo-card {
+    width: 375px;
+    height: 375px;
+    grid-template-rows: repeat(5, 75px);
+    grid-template-columns: repeat(5, 75px);
+  }
+
+  .cross-off::before {
+    margin-left: 0.5rem;
+    font-size: 4rem;
+  }
+
+  .title span {
+    font-size: 0.5rem;
+    bottom: -0.25rem;
+    left: -0.1rem;
+  }
+
+  .title h1:first-of-type {
+    font-size: 1.5rem;
+    bottom: -1.5rem;
+  }
+
+  .title h1:nth-of-type(2) {
+    font-size: 2rem;
+  }
+
+  .title h1:nth-of-type(3) {
+    font-size: 4rem;
+  }
+
+  .title h1:nth-of-type(4) {
+    font-size: 2rem;
+  }
 }
