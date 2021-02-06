@@ -90,6 +90,7 @@ button {
   background-color: #5c94fc;
   font-size: 1.5rem;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 button:focus,
@@ -166,8 +167,10 @@ button:active {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  right: 0;
+  bottom: 0;
+  /* height: 100vh;
+  width: 100vw; */
   background-color: rgba(0, 0, 0, 0.4);
 }
 
