@@ -64,7 +64,7 @@ function shuffleArray() {
 
 function shuffleCard() {
     document.querySelector(".bingo-modal-backdrop").classList.remove("got-bingo")
-    confetti.remove();
+    // confetti.remove();
     var crossedTiles = Array.from($(".cross-off"))
     if (crossedTiles) {
         crossedTiles.forEach(item => {
@@ -150,13 +150,13 @@ function getBingo() {
 
         ) {
             document.querySelector(".bingo-modal-backdrop").classList.add("got-bingo")
-            confetti.start();
+            // confetti.start();
             // setCard();
         }        
 }
 
 function keepPlaying() {
-    confetti.remove();
+    // confetti.remove();
     document.querySelector(".bingo-modal-backdrop").classList.remove("got-bingo")
 }
 
