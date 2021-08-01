@@ -34,7 +34,8 @@ var bingos = [
     'dev star/exit',
     '1up at goal is impossible',
     'pixel art in thumbnail',
-    'back to cp1'
+    'back to cp1',
+    'manadatory yoshi death'
 
 ]
 
