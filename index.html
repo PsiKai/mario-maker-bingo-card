@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="page-preview.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="assets/screenshots/page-preview.png" />
     <title>MM2 Bingo</title>
-    <link rel="stylesheet" href="bingo.css">
-    <link rel="icon" href="mushroom-icon.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
+    <link rel="stylesheet" href="bingo.css" />
+    <link rel="icon" href="assets/icons/mushroom-icon.ico" />
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <h1>
+          <span class="super">SUPER</span>
+          <span class="mario-maker">MARIO MAKER<sub class="tm">™</sub></span>
+          <span class="two">2</span>
+          <span class="bingo">BINGO</span>
+        </h1>
+      </div>
+    </header>
 
-</head>
-<body>
-    <div class="title">
-        <h1>Super</h1>
-        <h1>Mario Maker</h1><span>™</span>
-        <h1>2</h1>
-        <h1>Bingo</h1>
-    </div>
-    
-    <div class="bingo-card">
-        <div class="bingo-square" onclick=crossOff(event) value="1"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="2"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="3"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="4"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="5"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="6"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="7"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="8"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="9"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="10"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="11"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="12"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="14"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="15"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="16"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="17"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="18"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="19"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="20"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="21"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="22"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="23"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="24"></div>
-        <div class="bingo-square" onclick=crossOff(event) value="25"></div>
-        <div class="free-square"><b>Free Space</b></div>
-    </div>
-    <button onclick=shuffleCard()>New Card</button>
-    <div class="bingo-modal-backdrop">
-        <div class="bingo-modal">
-            <h1>That's a Bingo!</h1>
-            <!-- <button onclick=keepPlaying()>View Card</button> -->
-            <button onclick=shuffleCard()>Play Again</button>
+    <main>
+      <div class="bingo-card">
+        <div class="bingo-square" onclick="markBoard(event)" value="1"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="2"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="3"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="4"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="5"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="6"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="7"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="8"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="9"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="10"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="11"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="12"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="14"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="15"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="16"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="17"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="18"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="19"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="20"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="21"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="22"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="23"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="24"></div>
+        <div class="bingo-square" onclick="markBoard(event)" value="25"></div>
+        <div class="free-square cross-off" value="13"><b>Free Space</b></div>
+      </div>
+
+      <button onclick="playAgain()">New Card</button>
+
+      <div class="bingo-modal-backdrop">
+        <div role="dialog" class="bingo-modal">
+          <h1>That's a Bingo!</h1>
+          <button class="view-card" onclick="keepPlaying()">View Card</button>
+          <button onclick="playAgain()">Play Again</button>
         </div>
-    </div>
+      </div>
+    </main>
 
-    <p class="copyright"></p>
-    <script src="jquery.fittext.js"></script>
+    <footer>
+      <p class="copyright"></p>
+    </footer>
+
     <script src="bingo.js"></script>
-</body>
+  </body>
 </html>

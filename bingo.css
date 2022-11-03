@@ -1,15 +1,31 @@
 @font-face {
   font-family: marioFont;
-  src: url("fonts/super-mario-maker.ttf");
+  src: url("assets/fonts/super-mario-maker.ttf");
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+:root {
+  --box-shadow: 18px 14px 2px rgba(0, 0, 0, 0.4);
+  --text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.2);
+  --small-shadow: 8px 6px 1px rgba(0, 0, 0, 0.4);
+  --small-text: 3px 2px 1px rgba(0, 0, 0, 0.2);
+
+  --red: #e52521;
+  --maroon: #6a0400;
+  --tan: #ffd987;
+  --light-yellow: #f8dc81;
+  --yellow: #facd00;
+  --blue: #5c94fc;
 }
 
 html {
   scrollbar-width: 8px;
-  scrollbar-color: #6a0400 #ffd987;
+  scrollbar-color: var(--maroon) var(--tan);
 }
 
 ::-webkit-scrollbar {
@@ -17,24 +33,29 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffd987;
+  background: var(--tan);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6a0400;
+  background: var(--maroon);
   border-radius: 4px;
 }
 
 body {
   margin: 0;
-  margin-top: -2.5rem;
   font-family: marioFont;
-  background-color: #facd00;
+  background-image: radial-gradient(
+    farthest-corner at 30% 20%,
+    var(--tan) 20%,
+    var(--yellow) 70%,
+    var(--red) 99%
+  );
+  background-attachment: fixed;
   text-align: center;
 }
 
 .bingo-card {
-  background-color: #f8dc81;
+  background-color: var(--light-yellow);
   margin: auto;
   height: 750px;
   width: 750px;
@@ -44,7 +65,7 @@ body {
   cursor: pointer;
   border: 1px solid black;
   border-radius: 16px;
-  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: var(--box-shadow);
   animation: fade-in 100ms ease-in-out forwards;
 }
 
@@ -56,6 +77,7 @@ body {
 
 .bingo-square,
 .free-square {
+  font-size: 1.25rem;
   border: 1px solid black;
   height: 100%;
   width: 100%;
@@ -83,108 +105,158 @@ body {
 
 button {
   width: 200px;
+  max-width: 90%;
   margin: 3rem auto;
   padding: 1rem;
   display: block;
   font-family: inherit;
-  background-color: #5c94fc;
+  background-color: var(--blue);
   font-size: 1.5rem;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: var(--small-shadow);
 }
 
-button:focus,
+button:focus:not(:active) {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
 button:active {
-  outline: none;
+  animation: button-press 100ms ease-in forwards;
 }
 
-.cross-off::after,
-.free-square::after {
-  content: "X";
+button.view-card {
+  background-color: var(--tan);
+}
+
+@keyframes button-press {
+  to {
+    transform: scale(0.98);
+  }
+}
+
+.cross-off {
+  position: relative;
+}
+
+.cross-off::after {
+  content: "";
+  background-image: url("./assets/icons/fireflower-icon.png");
+  background-size: 6rem;
+  background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
-  font-size: 8rem;
-  color: #e52521;
-  opacity: 0.7;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  color: var(--red);
+  opacity: 0.3;
   display: inline-block;
-  width: 4rem;
-  animation: fade-opaque 100ms ease forwards;
+  inset: 0;
 }
 
-@keyframes fade-opaque {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.7;
-  }
+header {
+  background-color: var(--yellow);
+  box-shadow: var(--small-shadow);
+  margin-block: 2rem;
 }
 
 .title {
   position: relative;
-  width: -moz-fit-content;
-  width: -webkit-fit-content;
   width: fit-content;
   margin: auto;
+  padding: 1.5em;
+  font-size: 12px;
+  white-space: nowrap;
+  display: grid;
+  grid-template-areas:
+    "super super super super super two"
+    "mm mm mm mm mm two"
+    "bingo bingo bingo bingo bingo bingo";
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, auto);
+}
+
+.title h1 {
+  display: contents;
 }
 
 .title span {
-  font-size: 2rem;
-  position: relative;
-  bottom: -1rem;
-  left: -0.5rem;
+  font-weight: normal;
+  letter-spacing: -1px;
+  display: inline-block;
+  margin: 0;
+  line-height: 1;
+  vertical-align: middle;
 }
 
-.title h1:first-of-type {
-  font-size: 4rem;
+.title * {
+  position: relative;
+}
+
+.title .super {
+  font-size: 2.2em;
   margin-bottom: 0;
   text-align: left;
-  position: relative;
-  bottom: -3.5rem;
+  bottom: -0.25em;
+  grid-area: super;
 }
 
-.title h1:nth-of-type(2) {
-  font-size: 6rem;
+.title .mario-maker {
+  font-size: 3em;
   margin-top: 0;
   margin-bottom: 0;
-  display: inline-block;
+  grid-area: mm;
 }
 
-.title h1:nth-of-type(3) {
+.title .tm {
+  font-size: 0.3em;
+  vertical-align: baseline;
+  top: 0.4em;
+  left: -0.15em;
+  letter-spacing: -2px;
+}
+
+.title .two {
   margin-top: 0;
   margin-bottom: 0;
-  color: #e52521;
-  display: inline-block;
-  font-size: 10rem;
+  color: var(--red);
+  font-size: 5.75em;
+  grid-area: two;
 }
 
-.title h1:nth-of-type(4) {
-  font-size: 6rem;
+.title .bingo {
+  font-size: 4em;
   margin-top: 0;
+  display: block;
+  grid-area: bingo;
 }
 
 .bingo-modal-backdrop {
-  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* height: 100vh;
-  width: 100vw; */
+  inset: 0;
+  height: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 300ms ease, height 0ms linear 500ms;
+  transition-delay: 400ms;
+  z-index: 1000;
 }
 
 .bingo-modal {
-  background-color: #facd00;
-  position: absolute;
-  left: 50%;
-  top: 30%;
-  transform: translate(-50%, -50%);
-  height: 300px;
+  background-color: var(--yellow);
   width: 550px;
+  max-width: 95%;
   padding: 3rem 1rem;
   border-radius: 4px;
-  animation: drop-in 300ms ease-out forwards;
+  border: 4px solid var(--maroon);
+  box-shadow: var(--box-shadow);
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: transform 200ms ease-in, opacity 200ms ease-in;
+  transition-delay: 100ms;
 }
 
 .bingo-modal h1 {
@@ -195,12 +267,19 @@ button:active {
   display: inline-block;
   margin: 1rem;
   white-space: nowrap;
+  box-shadow: var(--small-shadow);
+}
+
+.got-bingo .bingo-modal {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .got-bingo {
-  opacity: 0;
-  display: block;
-  animation: fade-in 200ms ease forwards;
+  opacity: 1;
+  height: 100%;
+  transition: opacity 200ms ease;
+  transition-delay: 0ms;
 }
 
 @keyframes fade-in {
@@ -233,33 +312,17 @@ button:active {
     grid-template-columns: repeat(5, 100px);
   }
 
-  .cross-off::after,
-  .free-square::after {
-    font-size: 6rem;
-    width: 3rem;
+  .bingo-square,
+  .free-square {
+    font-size: 0.75rem;
   }
 
-  .title span {
-    font-size: 1rem;
-    bottom: -0.5rem;
-    left: -0.25rem;
+  .cross-off::after {
+    background-size: 4rem;
   }
 
-  .title h1:first-of-type {
-    font-size: 2rem;
-    bottom: -1.75rem;
-  }
-
-  .title h1:nth-of-type(2) {
-    font-size: 3rem;
-  }
-
-  .title h1:nth-of-type(3) {
-    font-size: 5rem;
-  }
-
-  .title h1:nth-of-type(4) {
-    font-size: 3rem;
+  .title {
+    font-size: 8px;
   }
 }
 
@@ -271,33 +334,23 @@ button:active {
     grid-template-columns: repeat(5, 75px);
   }
 
-  .cross-off::after,
-  .free-square::after {
-    font-size: 4rem;
-    width: 2rem;
+  .bingo-square,
+  .free-square {
+    font-size: 0.6rem;
   }
 
-  .title span {
-    font-size: 0.5rem;
-    bottom: -0.25rem;
-    left: -0.1rem;
+  .cross-off::after {
+    background-size: 3rem;
   }
 
-  .title h1:first-of-type {
-    font-size: 1.5rem;
-    bottom: -1.5rem;
+  .title {
+    font-size: 6px;
   }
 
-  .title h1:nth-of-type(2) {
-    font-size: 2rem;
-  }
-
-  .title h1:nth-of-type(3) {
-    font-size: 4rem;
-  }
-
-  .title h1:nth-of-type(4) {
-    font-size: 2rem;
+  header,
+  button,
+  .bingo-card {
+    box-shadow: var(--small-shadow);
   }
 
   button {
@@ -308,7 +361,6 @@ button:active {
 
   .bingo-modal {
     width: 375px;
-    height: 300px;
   }
 
   .copyright {
