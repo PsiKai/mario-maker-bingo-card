@@ -37,8 +37,38 @@ var bingos = [
 
 var squares = document.querySelectorAll(".bingo-square")
 var modal = document.querySelector(".bingo-modal-backdrop")
-var bingoMatch =
-  /12345|678910|1112131415|1617181920|2122232425|1.*6.*11.*16.*21|2.*7.*12.*17.*22|3.*8.*13.*18.*23|4.*9.*14.*19.*24|5.*10.*15.*20.*25|1.*7.*13.*19.*25|5.*9.*13.*17.*21/
+var bingoMatch = straightBingoPatterns(5)
+// /12345|678910|1112131415|1617181920|2122232425|1.*6.*11.*16.*21|2.*7.*12.*17.*22|3.*8.*13.*18.*23|4.*9.*14.*19.*24|5.*10.*15.*20.*25|1.*7.*13.*19.*25|5.*9.*13.*17.*21/
+
+function straightBingoPatterns(length) {
+  // // Version 1
+  // var bingoLength = new Array(length).fill()
+  // var totalSquares = new Array(length ** 2).fill().map((_, i) => i + 1)
+  // var rows = bingoLength.map((_, i) =>
+  //   totalSquares.slice(i * length, i * length + length).join("")
+  // )
+  // var columns = bingoLength.map((_, i) =>
+  //   bingoLength.map((_, j) => totalSquares[j * length + i]).join(".*")
+  // )
+  // var topLeftDiagonal = bingoLength.map((_, i) => length * i + i + 1).join(".*")
+  // var topRightDiagonal = bingoLength.map((_, i) => length * (i + 1) - i).join(".*")
+
+  // return new RegExp(`${[...rows, ...columns, topLeftDiagonal, topRightDiagonal].join("|")}`)
+
+  // Version 2
+  var bingoLength = new Array(length).fill()
+  var squareMap = bingoLength.reduce((obj, _, i) => {
+    obj[i + 1] = bingoLength.map((_, j) => i * length + j + 1)
+    return obj
+  }, {})
+
+  var rows = Object.values(squareMap).map(arr => arr.join(""))
+  var columns = bingoLength.map((_, i) => bingoLength.map((_, j) => squareMap[j + 1][i]).join(".*"))
+  var topLeftDiagonal = bingoLength.map((_, j) => squareMap[j + 1][j]).join(".*")
+  var topRightDiagonal = bingoLength.map((_, j) => squareMap[j + 1][length - (j + 1)]).join(".*")
+
+  return new RegExp(`${[...rows, ...columns, topLeftDiagonal, topRightDiagonal].join("|")}`)
+}
 
 function setCard() {
   shuffleArray()
